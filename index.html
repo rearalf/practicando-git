@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis apuntes de Git</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="section1 container">
+        <h1 data-aos="fade-down" class="title1">Git</h1>
+
+        <h2 class="mb1">¿Que es y para que sirve Git?</h2>
+        <p>
+            El control de versiones (<strong>Version Control System</strong> o VCS en ingles) es un sistema que registra
+            los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas
+            recuperar versiones específicas más adelante.
+        </p>
+
+        <h3 class="mb1 mt1">Las ventajas de utilizar un VCS son:</h3>
+        <ul>
+            <li>
+                Te permite revertir archivos a un estado anterior o revertir el proyecto entero a un estado anterior.
+            </li>
+            <li>
+                Comparar cambios a lo largo del tiempo, y quien realizo esos cambios.
+            </li>
+            <li>
+                Ver quien modificó por última vez algo que puede estar causando problemas.
+            </li>
+        </ul>
+
+        <h3 class="mb1 mt1">Fundamentos de Git</h3>
+        <p class="mb3">
+            Git modela sus datos más como un conjunto de instantáneas de un mini sistema de archivos. Cada vez que
+            realizamos cambios, o guardamos el estado del proyecto en Git, toma una foto del aspecto de todos los
+            archivos y guarda una referencia a ese instantánea. Para los archivos que no se modificaron no los almacena
+            de nuevo, solo hace un enlace al archivo anterior que ya tenia almacenado.
+        </p>
+    </header>
+
+    <section class="section2">
+        <div data-aos="fade-right" data-aos-mirror="true" class="container">
+            <h3 class="mb1 pt2">Casi cualquier operación es local</h3>
+            <p class="mb1 mt1">
+                La mayoría de las operaciones en Git sólo necesitan archivos y recursos locales para
+                operar, como tienes
+                toda la
+                historia del proyecto ahí mismo, en tu disco duro local, las operaciones en su mayoría te parecerán
+                inmediatas. Como una
+                vez descargado todo el proyecto de su repositorio, descargas toda la historia del mismo.
+            </p>
+            <h3 class="mb1">Git tiene integridad</h3>
+            <p class="mb1 mt1">
+                En Git no es posible hacer cambios sin que él lo sepa, gracias a una suma de comprobaciones antes de ser
+                almacenado, y
+                es identificado a partir de ese momento mediante una suma (*checksum* en ingles). Utiliza una mecanismo
+                que utiliza para
+                generar esta suma se llama hash SHA-1. Es una cadena de 40 caracteres hexadecimales (0-9 y a-f), y se
+                calcula en base a
+                los contenidos del archivo o estructura de directorios en Git.
+                <code class="language-text">24b9da6552252987aa493b52f8696cd6d3b00373</code>.
+            </p>
+            <h3 class="mb1 mt1">Los tres estados</h3>
+            <p class="mb1">Esto es muy importante de entender y que en cualquier curso o documento te hablaran de esto.
+                Git tiene
+                tres estados
+                principales en los que se puede encontrar tus archivos:</p>
+            <ul>
+                <li>
+                    <strong>Confirmado (<i>committed</i>):</strong>Significa que los datos están almacenados de manera
+                    segura
+                    en tu base de
+                    datos local.
+                </li>
+                <li>
+                    <strong>Modificado (<i>modified</i>):</strong> Significa que has modificado el archivo pero todavía
+                    no lo has
+                    confirmado a tu base de
+                    datos.
+                </li>
+                <li>
+                    <strong>Preparado (<i>staging</i>):</strong>Significa que has marcado un archivo modificado en su
+                    versión actual para
+                    que vaya en tu
+                    próxima confirmación.
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section3">
+        <div class="container">
+            <p class="pt1 mb1">Con los tres estados llega las tres secciones principales de un proyecto de Git:</p>
+
+            <ul>
+                <li>
+                    <strong>El directorio de Git (<i>Git directory</i>):</strong> Donde se almacenan los metadatos y la
+                    base de datos de
+                    objetos
+                    para tu
+                    proyecto. Es lo mas importante de Git, y es lo que se copia cuando clonas una repositorio desde otro
+                    ordenador.
+                </li>
+                <li>
+                    <strong>El directorio de trabajo (<i>working directory</i>):</strong> Es una copia de una versión
+                    del proyecto.
+                    Estos
+                    archivos se sacan
+                    de la base de datos comprimida en el directorio de Git, y se colocan en disco para que los puedas
+                    usar o
+                    modificar.
+                </li>
+                <li>
+                    <strong>El área de preparación (<i>staging area</i>):</strong> Es un sencillo archivo, contenido en
+                    tu directorio de
+                    Git,stron
+                    que almacena
+                    información acerca de lo que va a ir en tu próximo confirmación.
+                </li>
+            </ul>
+            <p class="mb1">El flujo de trabajo básico en Git es algo así:</p>
+            <ol>
+                <li>
+                    Modificas una serie de archivos en tu directorio de trabajo.
+                </li>
+                <li>
+                    Preparas los archivos, añadiendo instantáneas de ellos a tu área de preparación.
+                </li>
+                <li>
+                    Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y
+                    almacena
+                    esa
+                    instantánea de maneta permanente en tu directorio de Git.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
